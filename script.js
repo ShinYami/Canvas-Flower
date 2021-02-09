@@ -13,7 +13,7 @@ let arcNumber = parseInt(prompt("Enter another number"));
 
 
 function drawFlower(){
-    let angle = number * angleNumber;
+    let angle = number * angleNumber; //first input asked
     let radius = scale * Math.sqrt(number);
     let positionX = radius * Math.sin(angle) + canvas.width/2;
     let positionY = radius * Math.cos(angle) + canvas.height/2;
@@ -21,17 +21,17 @@ function drawFlower(){
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.arc(positionX, positionY, arcNumber, 0, Math.PI * 2);
+    ctx.arc(positionX, positionY, arcNumber, 0, Math.PI * 2); //second one
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
 
     number++;
-    hue+= 0.5;
+    hue+= 1;
 }
 
 function animate() {
-    //ctx.clearRect(0,0, canvas.width, canvas.height); --> if you remove this, you'll understand whats happening
+    //ctx.clearRect(0,0, canvas.width, canvas.height); //--> if you remove this, you'll understand whats happening
     drawFlower();
     //if (number > 300) return,
     requestAnimationFrame(animate);
